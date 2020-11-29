@@ -1,4 +1,5 @@
-input.onButtonPressed(Button.A, function () {
+input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
     b_pressed = 0
     images.createImage(`
         . # # . .
@@ -8,7 +9,8 @@ input.onButtonPressed(Button.A, function () {
         # . . # .
         `).showImage(0, 20)
 })
-function display_frame (num: number) {
+function display_frame(num: number) {
+    
     if (num == 0) {
         images.createImage(`
             . . . . .
@@ -18,6 +20,7 @@ function display_frame (num: number) {
             . . . . .
             `).showImage(0, 100)
     }
+    
     if (num == 1) {
         images.createImage(`
             . . . . .
@@ -259,11 +262,14 @@ function display_frame (num: number) {
             . . . . .
             `).showImage(0, 100)
     } else {
-    	
+        
     }
+    
     global_frame = num
 }
-input.onButtonPressed(Button.B, function () {
+
+input.onButtonPressed(Button.B, function on_button_pressed_b() {
+    
     b_pressed = 1
     images.createImage(`
         # # # . .
@@ -278,24 +284,28 @@ let b_pressed = 0
 let global_frame = 0
 global_frame = 0
 b_pressed = 1
-basic.forever(function () {
+basic.forever(function on_forever() {
     let index: number;
-if (b_pressed != 1) {
+    if (b_pressed != 1) {
         index = global_frame
         while (index <= 29) {
             display_frame(index)
             if (b_pressed == 1) {
-                break;
+                break
             }
+            
             index += 1
         }
     }
+    
     if (b_pressed != 1) {
-        for (let index2 = 0; index2 <= 30; index2++) {
+        for (let index2 = 0; index2 < 31; index2++) {
             display_frame(index2)
             if (b_pressed == 1) {
-                break;
+                break
             }
+            
         }
     }
+    
 })
